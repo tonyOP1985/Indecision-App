@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Indecision App</title>
+
+	<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+	
+	<div id="app">
+		
+		<header>
+			<h1>Indecision App</h1>
+			<p>Put your life in the hands of a computer</p>
+		</header>
+
+		<section class="inputTodo">
+			<input type="text" v-model="message" placeholder="Enter todo here">
+			<button class="add" v-on:click="createTodo">Add Todo</button>
+			<button class="decide" v-on:click="selectTodo">Decide!</button>
+			<p>Clicking the 'Decide' button allows the computer to choose what you do next in your life because you are incable of deciding for your self.</p>
+		</section>
+
+		<section class="todos">
+			<div v-bind:class="{todo: todoStyle}" v-for="(todo, index) in todos">
+				<h1>{{ todo }}</h1>
+				<button class="delete" v-on:click="deleteTodo(index)">Delete Todo</button>
+			</div>
+			
+		</section>
+
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+</html>
